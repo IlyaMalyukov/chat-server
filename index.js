@@ -9,7 +9,7 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
 app.use(express.json())
-app.use('/auth', authRouter)
+app.use('/', authRouter)
 
 io.on('connection', (socket) => {
   socket.on('chat message', msg => {
