@@ -62,8 +62,9 @@ class authController {
        }
 
        const token = generateAccessToken(user._id, user.roles)
+       const userData = { name: user.name }
 
-       return res.json({token})
+       return res.json({token, userData})
 
     } catch(e) {
       console.log(e)
