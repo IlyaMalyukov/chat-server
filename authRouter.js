@@ -9,7 +9,7 @@ router.post(
   '/registration', 
   [
     check('name', 'The name field must not be empty').notEmpty(),
-    check('password', 'Password length must be at least 4 characters').isLength({min: 4})
+    check('password', 'The password field must not be empty').notEmpty()
   ],
   controller.registration)
 router.post('/login', controller.login)
