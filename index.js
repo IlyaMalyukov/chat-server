@@ -20,7 +20,6 @@ app.use('/', authRouter)
 
 io.on('connection', (socket) => {
   socket.on('chat message', msg => {
-    console.log(JSON.stringify(msg))
     io.emit('chat message', msg);
   });
 });
