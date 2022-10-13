@@ -10,21 +10,18 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http, {
   cors: {
     origin: '*',
+    credentials: true,
     methods: ['GET', 'POST']
   }
 });
 
-app.use(cors())
+app.use(cors({
+  origin:'*',
+  credentials: true,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE'
+}))
 app.use(express.json())
 app.use('/', authRouter)
-
-app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', true);
-  res.header('Access-Control-Allow-Credentials', true);
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  next();
-});
 
 io.on('connection', (socket) => {
   socket.on('chat message', msg => {
