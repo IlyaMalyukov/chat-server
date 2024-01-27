@@ -1,8 +1,1 @@
-# Перенаправить запросы на регистрацию на контроллер регистрации
-/registration/* 200 /authController/registration
-
-# Перенаправить запросы на вход на контроллер входа
-/login/* 200 /authController/login
-
-# Перенаправить запросы на пользователей на контроллер пользователей
-/users/* 200 /authController/getUsers
+/*    /index.html   200
